@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Dynamic URL Form</title> 
+</head> 
+<body> 
+ 
+<h1>Dynamic URL Form</h1> 
+<form id="urlForm"> 
+    <label for="userId">User ID:</label> 
+    <input type="text" id="userId" name="userId" required> 
+    <button type="submit">Generate URL</button> 
+</form> 
+ 
+<p id="result"></p> 
+ 
+<script> 
+    document.getElementById('urlForm').addEventListener('submit', function(event) { 
+        event.preventDefault(); // Prevent the form from submitting 
+        const userId = document.getElementById('userId').value; 
+        const baseUrl = 'https://example.com/page'; 
+        const dynamicUrl = `${baseUrl}?userId=${encodeURIComponent(userId)}`; 
+        document.getElementById('result').innerText = dynamicUrl; 
+    }); 
+</script> 
+ 
+</body> 
+</html> 
